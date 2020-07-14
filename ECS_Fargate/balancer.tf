@@ -1,11 +1,11 @@
 resource "aws_alb" "main" {
-  name            = "tf-ecs-chat"
+  name            = "tf-ecs-app"
   subnets         = [aws_subnet.public[0].id, aws_subnet.public[1].id, aws_subnet.public[2].id]
   security_groups = [aws_security_group.lb.id]
 }
 
 resource "aws_alb_target_group" "app" {
-  name        = "tf-ecs-chat"
+  name        = "tf-ecs-app"
   port        = 8080
   protocol    = "HTTP"
   vpc_id      = aws_vpc.main.id

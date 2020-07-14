@@ -2,18 +2,19 @@ resource "aws_ecs_cluster" "main" {
   name = "tf-ecs-cluster"
 }
 
+
 resource "aws_ecs_task_definition" "app" {
   family                   = "app"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.fargate_cpu
   memory                   = var.fargate_memory
-  container_definitions = templatefile("./task_definitions/chat.json", {
-    name: "app",
-    cpu    : var.fargate_cpu,
+  container_definitions = templatefile("./task_definitions/app.json", {
+    name : "app",
+    cpu : var.fargate_cpu,
     memory : var.fargate_memory,
-    image  : var.app_image,
-    port   : var.app_port
+    image : var.app_image,
+    port : var.app_port
   })
 }
 
@@ -21,7 +22,7 @@ resource "aws_ecs_service" "main" {
   name            = "tf_ecs_service"
   task_definition = aws_ecs_task_definition.app.arn
   cluster         = aws_ecs_cluster.main.id
-  desired_count   = 2
+  desired_count   = var.app_count
   launch_type     = "FARGATE"
 
   network_configuration {

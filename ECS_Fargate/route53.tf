@@ -1,10 +1,10 @@
 resource "aws_route53_zone" "main" {
-  name = "mynewdomain.ml"
+  name = "${var.domain}"
 }
 
 resource "aws_route53_record" "app" {
   zone_id = "${aws_route53_zone.main.zone_id}"
-  name    = "app.mynewdomain.ml"
+  name    = "app.${var.domain}"
   type    = "A"
 
   alias {
