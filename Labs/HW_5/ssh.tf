@@ -1,0 +1,5 @@
+  
+resource "aws_key_pair" "ec2key" {
+  key_name   = "ec2-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzrHz2QgCK83oQwmwJzz4+ri0pZbGl4jrGQOwstshPP7mE/l0PAIb586MHmqniiLSlytuZmbaFZIiW5jVPjXAl9Xt6q+syeGyzTrd/a2yGV4E374/XJd6MfMi+1a6Age/pXn3S88u402UXIfHuMmNIbS/fPAbtKOShtlcTpiDaZE1LnDRCec19IezAHpY0MYQLfXiUV4+tqHNwtJLxWpKRLaPKDoEouSWMiRX78psBHpbenAUeqZlAK1ZvtjZswy9IrJkDUo2l7i9xr9WFBdYM3qcEdmu2PSP9Cy9l4U8itpPHlEi02Cq/xT0kLSpA1Nk+NjgIrKa29vLt3qVBWg6H ramella.basenko@Ramella-Basenko.local"
+}
