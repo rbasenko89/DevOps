@@ -9,3 +9,5 @@ terraform init
 terraform plan
 terraform apply
 
+**NOTE real ssh keys are not commited to this folder, but they should be present as they are used by terraform script.
+

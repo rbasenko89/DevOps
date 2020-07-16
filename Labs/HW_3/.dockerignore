@@ -1,6 +1,0 @@
-.git/
-.dockerignore
-node_modules/
-Dockerfile
-prod.Dockerfile
-package-lock.json

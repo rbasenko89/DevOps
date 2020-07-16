@@ -3,7 +3,7 @@ pipeline {
         registry = "rbasenko/jenkins_build"
         registryCredential = 'dockerhub'
         dockerImage = ''
-  }
+  }  
 agent any
 stages {
     stage('Cloning Git') {
