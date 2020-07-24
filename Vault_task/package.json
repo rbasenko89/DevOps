@@ -1,0 +1,21 @@
+{
+  "name": "hw-03",
+  "version": "1.0.0",
+  "description": "docker-compose up -d",
+  "main": "myapp.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node myapp.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-status-codes": "^1.4.0",
+    "jest": "^26.0.1",
+    "node-vault": "^0.9.18",
+    "pg-promise": "^10.5.8",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {}
+}
