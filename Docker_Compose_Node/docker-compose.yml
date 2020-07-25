@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   DB:
+    network_mode: host
     image: "postgres:11"
     container_name: "my_postgres"
     ports:
@@ -14,6 +15,7 @@ services:
             - POSTGRES_USER=postgres
             - PGDATA=/var/lib/postgresql/data/pgdata
   node-app:
+    network_mode: host
     build: .
     env_file: .dev.env
     ports:
