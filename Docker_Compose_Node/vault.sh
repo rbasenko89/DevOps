@@ -1,9 +1,9 @@
 pkill vault
 rm  -rf  *.zip.* *.zip
 
-curl -L https://releases.hashicorp.com/vault/1.5.0-rc/vault_1.5.0-rc_linux_amd64.zip > /dev/null
+curl https://releases.hashicorp.com/vault/1.5.0-rc/vault_1.5.0-rc_linux_amd64.zip --output vault.zip
 
-unzip vault_1.5.0-rc_linux_amd64.zip	
+unzip vault.zip
 
 sudo mv vault /bin/
 
