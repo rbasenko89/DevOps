@@ -1,3 +1,7 @@
+git fetch
+
+git checkout origin/master -- ./myapp.js
+
 pkill vault
 rm  -rf vault *.zip.* *.zip
 
@@ -39,9 +43,15 @@ vault kv put secret/pass PASS=$PASSWORD
 
 POSTGRES_USER=`vault kv get -field=USER secret/login`
 export POSTGRES_USER
+echo "$POSTGRES_USER" >> .dev.env
 
 POSTGRES_PASSWORD=`vault kv get -field=PASS secret/pass`
 export POSTGRES_PASSWORD
+echo "$POSTGRES_PASSWORD" >> .dev.env
+
+
+sed -i "s|postgres:postgres@DB|$(echo $POSTGRES_USER:$POSTGRES_PASSWORD@127.0.0.1)|g" myapp.js
+
 
 echo -e " \n"
 
