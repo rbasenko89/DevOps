@@ -1,27 +1,32 @@
 pkill vault
-rm  -rf  *.zip.* *.zip
+rm  -rf vault *.zip.* *.zip
 
 curl https://releases.hashicorp.com/vault/1.5.0-rc/vault_1.5.0-rc_linux_amd64.zip --output vault.zip
 
 unzip vault.zip
 
-sudo mv vault ~/
+$PWD/vault server -dev > vault.log &
 
-~/vault server -dev > vault.log &
+sleep 10
 
-Unseal_Key=$(egrep -i "Unseal Key:" ~/vault.log)
-Root_Token=$(egrep -i "Root Token:" ~/vault.log)
+echo -e " \n"
+
+Unseal_Key=$(egrep -i --color=always "Unseal Key:" $PWD/vault.log)
+Root_Token=$(egrep -i --color=always "Root Token:" $PWD/vault.log)
 
 echo $Unseal_Key
 echo $Root_Token
+
+echo -e " \n"
+
 export VAULT_ADDR='http://127.0.0.1:8200'
-echo $VAULT_ADDR
+echo VAULT ADDRESS=$VAULT_ADDR
 
 sleep 5
 
 echo -e " \n"
 
-~/vault status
+$PWD/vault status
 
 
 echo -e " \n"
