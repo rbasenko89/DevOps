@@ -45,3 +45,9 @@ docker-compose up -d
 echo -e " \n"
 
 docker ps
+
+echo -e " \n"
+
+docker exec -t  -i db bash -c "env | egrep --color=always 'POSTGRES_USER|POSTGRES_PASSWORD'"
+
+echo -e " \n"
