@@ -5,7 +5,6 @@ services:
     network_mode: host
     image: "postgres:11"
     container_name: "db"
-    working_dir: /dir
     ports:
       - "5432:5432"
     environment:
