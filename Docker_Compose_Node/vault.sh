@@ -5,9 +5,9 @@ curl https://releases.hashicorp.com/vault/1.5.0-rc/vault_1.5.0-rc_linux_amd64.zi
 
 unzip vault.zip
 
-sudo mv vault /bin/
+sudo mv vault ~/
 
-/bin/vault server -dev > vault.log &
+~/vault server -dev > vault.log &
 
 Unseal_Key=$(egrep -i "Unseal Key:" ~/vault.log)
 Root_Token=$(egrep -i "Root Token:" ~/vault.log)
@@ -21,7 +21,7 @@ sleep 5
 
 echo -e " \n"
 
-/bin/vault status
+~/vault status
 
 
 echo -e " \n"
