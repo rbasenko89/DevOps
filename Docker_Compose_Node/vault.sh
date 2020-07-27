@@ -1,7 +1,7 @@
 pkill vault
 rm  -rf  *.zip.* *.zip
 
-wget https://releases.hashicorp.com/vault/1.5.0-rc/vault_1.5.0-rc_linux_amd64.zip
+curl -L https://releases.hashicorp.com/vault/1.5.0-rc/vault_1.5.0-rc_linux_amd64.zip > /dev/null
 
 unzip vault_1.5.0-rc_linux_amd64.zip	
 
